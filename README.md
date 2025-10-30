@@ -1,10 +1,10 @@
-🧱 Mini Microservices Blog App
+## Mini Microservices Blog App
 
 A microservices-based blog application built with Node.js, React, Docker, Kubernetes, and Skaffold for seamless local development.
 
 This project demonstrates how independent services like posts, comments, query, moderation, and event-bus interact through events and APIs, orchestrated by Kubernetes and reverse-proxied through Ingress NGINX.
 
-🚀 Tech Stack
+## 🚀 Tech Stack
 
 Node.js + Express.js → Backend microservices
 
@@ -18,18 +18,27 @@ Skaffold → Automated local builds & deployments
 
 Ingress-NGINX → Routing & domain management
 
-🏗️ Project Architecture
-BLOG-BOILERPLATE/
+## 🏗️ Project Architecture
+
+**BLOG-BOILERPLATE/**
+
 ├── client/         → React frontend
+
 ├── comments/       → Comments service
+
 ├── posts/          → Posts service
+
 ├── query/          → Query service
+
 ├── moderation/     → Moderation service
+
 ├── event-bus/      → Event bus for inter-service communication
+
 ├── infra/          → Kubernetes deployment & service configs
+
 └── skaffold.yaml   → Skaffold config for automated builds & deploys
 
-⚙️ Prerequisites
+**⚙️ Prerequisites**
 
 Before starting, ensure the following are installed:
 
@@ -39,20 +48,23 @@ Before starting, ensure the following are installed:
 
 🏗️ Skaffold — Download and add to PATH
 
-💻 Git
+## 💻 Git
 
-🔧 Setup Instructions
-1. Clone the repository
-git clone `https://github.com/InsideAmber/mini-microservice-app.git
-cd mini-microservices-app
+**🔧 Setup Instructions**
 
-2. Enable Kubernetes in Docker Desktop
+Clone the repository
+   
+`git clone https://github.com/InsideAmber/mini-microservice-app.git`
+
+`cd mini-microservices-app`
+
+Enable Kubernetes in Docker Desktop
 
 Open Docker Desktop → Settings → Kubernetes → ✅ Enable Kubernetes
 
 Wait until the status shows “Kubernetes is running”
 
-3. Start the app with Skaffold
+**Start the app with Skaffold**
 
 Run the following command in your project root:
 
@@ -70,7 +82,7 @@ Continuously watch for code changes and automatically redeploy services.
 🌀 Live Reload:
 When you modify a file in any service, Skaffold rebuilds and redeploys it automatically — your changes appear live within seconds.
 
-4. Configure local domain
+**Configure local domain**
 
 To route traffic through Ingress NGINX, you need to map posts.com to your local system.
 
@@ -86,7 +98,7 @@ Add the following line at the bottom:
 
 Save and close the file.
 
-5. Access the app
+**Access the app**
 
 Once Skaffold has finished deploying, open your browser and visit:
 
@@ -94,7 +106,8 @@ Once Skaffold has finished deploying, open your browser and visit:
 
 That’s the entry point served through Ingress NGINX, routing requests to your client service and internally connecting to other services like posts, comments, etc.
 
-📦 Common Kubernetes Commands
+### 📦 Common Kubernetes Commands
+
 | Command                          | Description                     |
 | -------------------------------- | ------------------------------- |
 | `kubectl get pods`               | List all running pods           |
@@ -104,7 +117,8 @@ That’s the entry point served through Ingress NGINX, routing requests to your 
 | `skaffold dev`                   | Start dev mode with auto-reload |
 | `skaffold delete`                | Remove all deployed resources   |
 
-🧠 Key Kubernetes Concepts
+### 🧠 Key Kubernetes Concepts
+
 | Term           | Description                                                      |
 | -------------- | ---------------------------------------------------------------- |
 | **Cluster**    | The entire Kubernetes environment (nodes + master)               |
@@ -114,7 +128,8 @@ That’s the entry point served through Ingress NGINX, routing requests to your 
 | **Service**    | Provides stable networking access to pods                        |
 | **Ingress**    | Routes external traffic (e.g., `posts.com`) to internal services |
 
-🧩 Microservices Overview
+### 🧩 Microservices Overview
+
 | Service        | Responsibility                                 |
 | -------------- | ---------------------------------------------- |
 | **Posts**      | Creates and manages blog posts                 |
@@ -124,10 +139,10 @@ That’s the entry point served through Ingress NGINX, routing requests to your 
 | **Event Bus**  | Publishes and listens to service events        |
 | **Client**     | React-based frontend, accessed via `posts.com` |
 
-🧹 .gitignore Example
+**🧹 `.gitignore` Example**
 
-At the project root, include a .gitignore like this:
-
+At the project root, include a `.gitignore` like this:
+```bash
 # Node modules (ignore for all services)
 **/node_modules
 **/build
@@ -139,7 +154,7 @@ At the project root, include a .gitignore like this:
 # IDE and OS files
 .vscode/
 .DS_Store
-
+```
 
 This ensures all dependencies are excluded across your microservices.
 
